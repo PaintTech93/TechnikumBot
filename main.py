@@ -6,14 +6,14 @@
    https://towardsdatascience.com/build-your-first-voice-assistant-85a5a49f6cc1'''
 
 from technikumbot import technikumbot
-from speak import myCommand
+from listen import myCommand
 from talk import talk
 
 
-
-talk('Technikum Bot is ready!')
+talk('Tech is ready!')
 #loop to continue executing multiple commands
 
+x = True
 
-while True:
-    technikumbot(myCommand())
+while x == True:
+    x = technikumbot(myCommand())

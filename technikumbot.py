@@ -3,7 +3,9 @@ import wikipedia
 import random
 import operator
 import datetime
-from speak import myCommand
+from listen import myCommand
+from HangMan import game
+
 
 def technikumbot(command):
 
@@ -14,7 +16,7 @@ def technikumbot(command):
     ]
 
     if 'hello' in command:
-        talk("Hello I am Tech, FH Technikum's personal assistant" "How may I help you")
+        talk("Hello I am Tech, Florian, Tom and Pauls personal assistant" "How may I help you")
 
     elif 'time' in command:
         currenttime = datetime.datetime.now()
@@ -27,7 +29,7 @@ def technikumbot(command):
         talk("Today's current date is -" + str(today))
 
     elif 'tell your story' in command:
-        talk("Well, first of my creators wanted to program me based on JASPER which did not work out. Later on, the decision for the Text to Speech engine was made. First, Google gTTS has been discussed, but later on, after some initial struggle they decided on another one")
+        talk("I got developed by Florian, Tom and Paul. First, one of my creators wanted to program me based on JASPER which did not work out. Thus, my creators looked for a functioning speech engine. First, Google gTTS has been discussed, but later on, they decided on pyttsx3, an offline based speech engine. For the purpose of this presentation, my creators will present you numerous functions. As of now my functions include: Telling the current date and time, pursueing calculations, giving information about wikipedia articles or playing hangman.")
 
 
     elif 'calculate' in command:
@@ -71,11 +73,18 @@ def technikumbot(command):
         except:
             talk("No results on wikipedia.")
 
+    elif 'let\'s play a game' in command:
+        game()
+
     elif 'cancel the program' in command:
-        talk("Technikum Bot goes offline.")
+        talk("Tech goes offline.")
+        x = False
+        return x
 
 
     else:
         error = random.choice(errors)
         talk(error)
 
+    x = True
+    return x
